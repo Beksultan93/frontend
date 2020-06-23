@@ -8,12 +8,12 @@ import {environment} from '../../environments/environment';
 export class OrderService {
   private products: ProductResponseModel[] = [];
   // tslint:disable-next-line:variable-name
-  private server_Url = environment.SERVER_URL;
+  private serverUrl = environment.SERVER_URL;
 
   constructor(private http: HttpClient) { }
 
   getSingleOrder(orderId: number) {
-    return this.http.get<ProductResponseModel>(this.server_Url + '/orders' + orderId).toPromise();
+    return this.http.get<ProductResponseModel[]>(this.serverUrl + '/orders/' + orderId).toPromise();
   }
 
 }
