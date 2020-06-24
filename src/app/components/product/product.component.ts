@@ -24,11 +24,9 @@ export class ProductComponent implements OnInit, AfterViewInit {
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.paramMap
-      .pipe(
-        map((param: ParamMap) => {
+    this.route.paramMap.pipe(map((param: ParamMap) => {
           // @ts-ignore
-          return params.params.id;
+          return param.params.id;
         })
     )
     .subscribe(prodId => {
@@ -39,7 +37,6 @@ export class ProductComponent implements OnInit, AfterViewInit {
         if (prod.images !== null) {
           this.thumbImages = prod.images.split(';');
         }
-
       });
     });
   }
